@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+/* 상단 로고 css 코드 */
+.logo {
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	margin-top: 1.5%;
+}
+
+.logoImg {
+	width: 20%;
+	margin-top: 1%;
+	/* border: 1px solid black; */
+	display: inline-block;
+}
+.content {
+	width: 100%;
+	text-align:center;
+/* 	border: 1px solid red; */
+	
+}
+.signin1 {
+	width: 50%;
+	margin: 0 auto;
+/* 	border: 1px solid blue; */
+	margin-bottom:3%;
+	margin-top: 3%;
+}
+.signin2 {
+	width: 50%;
+	margin: 0 auto;
+	margin-bottom:4%;
+/* 	border: 1px solid pink; */
+}
+.signin3 {
+	width: 50%;
+	margin: 0 auto;
+	margin-bottom:5%;
+/* 	border: 1px solid red; */
+}
+/* ---------------------------*/
+.tbllogin {
+	width: 100%;
+	text-align: left;
+	margin-left: 7%;
+}
+.tbllogin th {
+	width:30%;
+	height: 60px;
+	text-align: left;
+}
+tbllogin td {
+	width: 70%;
+}
+#j_id {
+	border:none;
+	border-bottom: 1px solid gray;
+	width: 80%;
+	height: 30px;
+	outline: none;
+}
+
+#j_pwd {
+	border:none;
+	border-bottom: 1px solid gray;
+	width: 80%;
+	height: 30px;
+	outline: none;
+}
+
+#j_pwdcf {
+	border:none;
+	border-bottom: 1px solid gray;
+	width: 80%;
+	height: 30px;
+	outline: none;
+}
+
+/* ---------------------------*/
+.tblmember {
+	text-align: left;
+	width: 100%;	
+	margin-left: 7%;
+}
+.tblmember th {
+	width:30%;
+	text-align: left;
+	height: 55px;
+}
+tblmember td {
+	width: 70%;
+}
+#j_name{
+	border:none;
+	border-bottom: 1px solid gray;
+	width: 80%;
+	height: 30px;
+	outline: none;
+}
+#j_fisrtphone {
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;
+	outline: none;	
+	width: 18%;
+	cursor: pointer;
+}
+#j_midphone, #j_lastphone {
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;	
+	width: 21.8%;
+	outline: none;
+}
+#zip_code {
+	border:none;
+	border-bottom: 1px solid gray;
+	width: 25%;
+	height: 30px;
+	outline: none;
+}
+#btn_code {
+	border: 1px solid gray;
+	width: 25%;
+	height: 30px;
+	margin-top: 1%;
+	background-color: #FAFAFA;
+	cursor: pointer;
+}
+#j_email {
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;	
+	width: 80%;
+	outline: none;
+}
+#j_address1 {
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;	
+	width: 80%;
+	outline: none;
+}
+ #j_address2 {
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;	
+	width: 80%;
+	outline: none;
+	margin-top: 2%;
+}
+#j_year {
+	cursor: pointer;
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;
+	outline: none;	
+	width: 20.5%;
+}
+#j_month, #j_day {
+	cursor: pointer;
+	border:none;
+	border-bottom: 1px solid gray;
+	height: 30px;
+	outline: none;	
+	width: 18%;
+}
+#join {
+	width: 86%;
+	height: 40px;
+	border: none;
+	font-size: 15px;
+	border-radius: 5px;
+	transition: all 0.3s;
+	background-color:#97d4f7;
+	color:white;
+	cursor: pointer;
+}
+#join:hover {
+	background-color:#81BEF7;
+}
+#showPwd, #showPwd2 {
+    position: absolute;
+	border: none;
+	background-color: white;
+	padding-right: 10px;
+	width: 22px;
+	left:320px;
+}
+.form-group {
+	position: relative;
+  }
+  
+  
+  
+/* ///드롭다운// */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    font-size: medium;
+    background-color: inherit;
+    color : black;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+.dropbtn:hover {
+    color: #97d4f7;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: center;
+     transform: translateX(-50%); /* Adjust for centering */
+}
+
+.dropdown-content a {
+    color : gray;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #97d4f7;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    
+}
+/* 저작권 */
+.footer_img {
+	width: 15%;
+	margin-top:1%;
+/* 	height:100px; */
+}
+footer {
+    display: block;
+    margin-bottom:10px;
+	padding:10px;
+}
+.footer-layer2 {
+	display: flex;
+}
+.footer_new .footer-layer2 {
+    width: 100%;
+    height: 170px;
+    margin: 30px auto;
+    font-size: 12px;
+    color: #555;
+    line-height: 150%;
+}
+.footer_new {
+    border-top: #ddd solid 2px;
+    background: #fff;
+}
+.footer-1, .footer-2, .footer-3 {
+	list-style: none;
+	position: relative;
+    padding-left: 15px;
+    font: 14px/1.7 'SDNeoL', 'notoL';
+    color: #999;		
+}
+.footer-1 {
+	width: 25%;
+}
+.footer-2 {
+	width: 45%;
+}
+.footer-3 {
+	width: 30%;
+}
+.titlename {
+	color:#58ACFA;
+	margin-left:1%;
+}
+.provTit {
+    margin: 14px 0 5px;
+/*     font: 15px/1.5 'SDNeoL', 'notoR'; */
+    color: #222;
+    }

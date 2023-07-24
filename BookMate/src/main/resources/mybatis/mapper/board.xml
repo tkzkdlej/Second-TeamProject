@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.human.springboot.BoardController.boardDAO">
+	<select id="bList"
+	resultType="com.human.springboot.BoardController.boardDTO">
+	select board_num, B_TITLE, ID, B_RCOUNT, B_CREATE_DATE
+	from Board
+	<!-- 관리자 상단으로 -->
+	ORDER BY DECODE(id, 'bookmate', 1), board_num DESC 
+
+	</select>
+	<select id="bView"
+		resultType="com.human.springboot.BoardController.boardDTO">
+		select board_num, B_TITLE, ID, B_CREATE_DATE,
+		B_UPDATE_DATE, B_CONTENT
+		from Board
+		where board_num=#{param1}
+	</select>
+	<select id="bViews"
+		resultType="com.human.springboot.BoardController.boardDTO">
+		select board_num, B_TITLE, ID, B_CREATE_DATE, B_CONTENT
+		from Board
+		where board_num=#{param1}
+	</select>
+	<insert id="bInsert" >
+		insert into Board (board_num, ID, B_TITLE, B_CREATE_DATE, B_CONTENT, B_UPDATE_DATE, B_RCOUNT)  
+					values (board_num.nextval, #{param1}, #{param2}, sysdate, #{param3},
+								 sysdate, 0) 
+	</insert>
+	<update id="bUpdate">
+		update Board set B_title=#{param1}, B_content=#{param2}, B_UPDATE_DATE=sysdate
+		where board_num=#{param3}
+	</update>
+	<delete id="bDelete">
+	 delete from Board where board_num=#{param1}
+	</delete>
+	<delete id="tbcdel" >
+		delete from board_comment where board_num=#{param1}
+	</delete>
+	<update id="bRead">
+		update Board set B_RCOUNT = B_RCOUNT+1 where board_num=#{param1}
+	</update>
+	<select id="bSearch" resultType="com.human.springboot.BoardController.boardDTO">
+	    SELECT board_num, B_TITLE, ID, B_RCOUNT, B_CREATE_DATE
+	    FROM Board
+	    where ${param1} like '%'||#{param2}||'%'
+	   
+	  	ORDER BY DECODE(id, 'bookmate', 1), board_num DESC 
+	</select>
+<!-- 	댓글등록 -->
+	<insert id="bcInsert" >
+		insert into board_comment values (BCOMMENT_NUM.nextval,  sysdate, 
+								 sysdate, #{param3}, #{param2}, #{param1}) 
+	</insert>
+	<select resultType="com.human.springboot.BoardController.boardDTO" id="comment">
+		select id,bc_create_date,bc_content,bcontent_num 
+		from board_comment where board_num=#{param1}
+		order by bc_create_date 
+	</select>
+	<delete id="bcdel" >
+		delete from board_comment where bcontent_num=#{param1}
+	</delete>
+</mapper>

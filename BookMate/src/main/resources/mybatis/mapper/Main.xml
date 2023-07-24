@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.human.springboot.MainController.MainDAO"><!-- dto칼럼이 적은건 오류안남 반대는 오류 -->
+		<select id="bookList" resultType="com.human.springboot.MainController.MainDTO">
+		  SELECT *
+		  FROM (SELECT *
+		        FROM book
+		        ORDER BY RATING DESC)
+		  WHERE ROWNUM &lt;= 9
+		</select>
+		<select id="emotionBookList" resultType="com.human.springboot.MainController.MainDTO">
+		  SELECT *
+		  FROM (SELECT *
+		        FROM book
+		        WHERE emotion = #{param1}
+		        ORDER BY RATING DESC)
+		  WHERE ROWNUM &lt;= 9
+				
+		</select>
+		
+		<select id="ageBookList" resultType="com.human.springboot.MainController.MainDTO">
+			SELECT b.book_name, b.book_num, b.book_genre, b.emotion, r.rev_rating, m.id, m.birth
+			FROM book b
+			JOIN review r ON b.book_num = r.book_num
+			JOIN member m ON m.id = r.id
+			where b.book_num=#{param1}
+		</select>
+		
+		<select id="selectWord" resultType="com.human.springboot.MainController.MainDTO">
+			select * from book where book_name=#{param1}
+		</select>
+		<select id="genreBookList" resultType="com.human.springboot.MainController.MainDTO">
+			select * from book where book_genre=#{param1}
+		</select>
+		<select id="gradeBookList" resultType="com.human.springboot.MainController.MainDTO">
+			SELECT *
+			FROM book
+			WHERE RATING >= #{param2} AND BOOK_GENRE = #{param1}
+		</select>
+		<select id="priceBookList" resultType="com.human.springboot.MainController.MainDTO">
+			SELECT *
+			FROM book
+			WHERE RATING >= #{param2} AND BOOK_GENRE = #{param1} AND NOT (BOOK_PRICE > #{param3})
+		</select>
+		
+		
+		
+		
+    </mapper>
+    
